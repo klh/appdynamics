@@ -1,0 +1,33 @@
+agent
+  .post('https://tdcas.saas.appdynamics.com/controller/restui/pageList/getEumPageList')
+  .send({
+  "applicationId": 2702,
+  "addId": null,
+  "fetchSyntheticData": false,
+  "timeRangeString": "last_1_week|BEFORE_NOW|-1|-1|10080"
+})
+  .set('ADRUM', 'isAjax:true')
+  .set('Cookie', 'JSESSIONID=8fa567969877de5b9feabe38a32a;')
+  .set('Content-Type', 'application/json;charset=UTF-8')
+  .set('Accept', 'application/json, text/plain, */*')
+  .redirects(0)
+  .end(function(err, res){
+    if (err || !res.ok) {
+      console.log('Oh no! error');
+    } else {
+      console.log('yay got ' + JSON.stringify(res.body));
+
+
+      var pluckedData = _.filter(res.body.pageList, function(o,t){
+        return o.totalPageViewWithJavaScriptError > 0;
+      });
+
+      console.log(pluckedData)
+
+
+      var file = fs.createWriteStream("pages.json");
+      fs.writeFileSync("pages.json",JSON.stringify(res.body));
+      dbFailedPages = low("pages.json");
+    }
+
+  });

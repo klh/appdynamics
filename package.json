@@ -1,0 +1,24 @@
+{
+  "name": "apptest",
+  "version": "1.0.0",
+  "description": "test for login of appdynamics",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "standard && node index.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "bluebird": "3.4.7",
+    "lodash": "*",
+    "lowdb": "0.14.0",
+    "request": "*",
+    "safefs": "4.1.0",
+    "superagent-bluebird-promise": "4.1.0",
+    "xtend": "*"
+  },
+  "devDependencies": {
+    "standard": "*"
+  }
+}
