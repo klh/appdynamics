@@ -5,14 +5,18 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "standard && node index.js"
+    "testStart": "standard && node index.js",
+    "run": "node index.js"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
     "bluebird": "3.4.7",
+    "console.table": "0.8.0",
+    "json2xls": "0.1.2",
     "lodash": "*",
     "lowdb": "0.14.0",
+    "moment": "2.17.1",
     "request": "*",
     "safefs": "4.1.0",
     "superagent-bluebird-promise": "4.1.0",
